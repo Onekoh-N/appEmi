@@ -12,7 +12,6 @@ app.use(express.json());
 app.set('port', PORT);
 
 //Routes
-app.use(indexRoutes);
 app.use(employeesRoutes);
 app.use((req, res)=>{
     res.status(404).json({
