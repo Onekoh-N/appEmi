@@ -1,6 +1,14 @@
 import express from 'express';
 import employeesRoutes from './routes/employees.routes.js';
-import indexRoutes from './routes/index.routes.js';
+import carritoCompraRoutes from './routes/compra/carritoCompra.routes.js';
+import itemCompraRoutes from './routes/compra/itemCompra.routes.js';
+import carritoVentaRoutes from './routes/venta/carritoVenta.routes.js';
+import itemVentaRoutes from './routes/venta/itemVenta.routes.js';
+import categoriaRoutes from './routes/Categoria.routes.js';
+import productoRoutes from './routes/Producto.routes.js';
+import proveedorRoutes from './routes/Proveedor.routes.js';
+import rolRoutes from './routes/Rol.routes.js';
+import usuarioRoutes from './routes/Usuario.routes.js';
 import {PORT} from './config.js';
 
 //Initialization
@@ -13,6 +21,16 @@ app.set('port', PORT);
 
 //Routes
 app.use(employeesRoutes);
+app.use(carritoCompraRoutes);
+app.use(itemCompraRoutes);
+app.use(carritoVentaRoutes);
+app.use(itemVentaRoutes);
+app.use(categoriaRoutes);
+app.use(productoRoutes);
+app.use(proveedorRoutes);
+app.use(rolRoutes);
+app.use(usuarioRoutes);
+
 app.use((req, res)=>{
     res.status(404).json({
         message: 'endpoint not found'
