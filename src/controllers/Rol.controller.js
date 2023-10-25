@@ -31,7 +31,6 @@ const createRol = async (req, res) => {
     try {
         const { nombre_rol,descripcion } = req.body;
         const [rows] = await pool.query('INSERT INTO roles (nombre_rol,descripcion) VALUES (?,?)', [nombre_rol,descripcion]);
-        console.log(req.body);
         res.send({
             "id": rows.insertId,
             nombre_rol,descripcion

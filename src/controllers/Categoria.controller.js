@@ -30,7 +30,6 @@ const createCategoria = async (req, res) => {
     try {
         const { nombre_categoria,descripcion } = req.body;
         const [rows] = await pool.query('INSERT INTO categorias (nombre_categoria,descripcion) VALUES (?,?)', [nombre_categoria,descripcion]);
-        console.log(req.body);
         res.send({
             "id": rows.insertId,
             nombre_categoria,descripcion

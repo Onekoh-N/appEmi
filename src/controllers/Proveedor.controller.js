@@ -31,13 +31,11 @@ const createProveedor = async (req, res) => {
     try {
         const { nombre,email,telefono,direccion,delivery } = req.body;
         const [rows] = await pool.query('INSERT INTO proveedores (nombre,email,telefono,direccion,delivery) VALUES (?,?,?,?,?)', [nombre,email,telefono,direccion,delivery]);
-        console.log(req.body);
         res.send({
             "id": rows.insertId,
             nombre,email,telefono,direccion,delivery
         });
     } catch (error) {
-        console.log(error.message)
         return res.status(500).json({
             message: 'Somthing goes wrong'
         })

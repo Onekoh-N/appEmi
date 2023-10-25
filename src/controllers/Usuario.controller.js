@@ -31,7 +31,6 @@ const createUsuario = async (req, res) => {
     try {
         const { nombre,email,telefono,password,rol_id } = req.body;
         const [rows] = await pool.query('INSERT INTO usuarios (nombre,email,telefono,password,rol_id) VALUES (?,?,?,?,?)', [nombre,email,telefono,password,rol_id]);
-        console.log(req.body);
         res.send({
             "id": rows.insertId,
             nombre,email,telefono,password,rol_id

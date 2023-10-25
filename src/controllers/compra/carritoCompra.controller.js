@@ -31,13 +31,11 @@ const createCarritoCompras = async (req, res) => {
     try {
         const { total,envio,proveedor_id } = req.body;
         const [rows] = await pool.query('INSERT INTO carritos_compras (total,envio,proveedor_id) VALUES (?,?,?)', [total,envio,proveedor_id]);
-        console.log(req.body);
         res.send({
             "id": rows.insertId,
             total,envio,proveedor_id
         });
     } catch (error) {
-        console.log(error.message)
         return res.status(500).json({
             message: 'Somthing goes wrong'
         })

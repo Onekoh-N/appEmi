@@ -31,7 +31,7 @@ const createItemVenta = async (req, res) => {
     try {
         const { cantidad,precio_venta,producto_id,orden_venta_id } = req.body;
         const [rows] = await pool.query('INSERT INTO items_venta (cantidad,precio_venta,producto_id,orden_venta_id) VALUES (?,?,?,?)', [cantidad,precio_venta,producto_id,orden_venta_id]);
-        console.log(req.body);
+        
         res.send({
             "id": rows.insertId,
             cantidad,precio_venta,producto_id,orden_venta_id

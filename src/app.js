@@ -1,5 +1,4 @@
 import express from 'express';
-import employeesRoutes from './routes/employees.routes.js';
 
 import proveedorRoutes from './routes/Proveedor.routes.js';
 import carritoCompraRoutes from './routes/compra/carritoCompra.routes.js';
@@ -20,7 +19,6 @@ app.use(express.json());
 app.set('port', PORT);
 
 //Routes
-app.use(employeesRoutes);
 
 app.use(proveedorRoutes);
 app.use(carritoCompraRoutes);
